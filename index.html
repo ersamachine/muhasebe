@@ -61,6 +61,9 @@ i.ic{display:inline-flex;}i.ic svg{display:block;}
 .search input{padding-left:38px;margin-bottom:0;}
 .search .si{position:absolute;left:13px;top:13px;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.wpill{display:inline-flex;align-items:center;gap:8px;background:#202020;border:1px solid #2e2e2e;border-radius:30px;padding:7px 12px 7px 7px;cursor:pointer;max-width:76%;}
+.wpill .wi{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wpill .wt{font-size:13.5px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .modcard{background:#202020;border:1px solid #2a2a2a;border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .12s;}
 .modcard:active{transform:scale(.97);}
 .modcard .mi{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
@@ -96,7 +99,7 @@ body{padding:0;background:#111111;align-items:stretch;justify-content:stretch;}
 
 <script src="config.js"></script>
 <script>
-const P={home:"M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z",users:"M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 19v-1a4 4 0 0 0-3-3.8",user:"M5 20v-1a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",receipt:"M5 3v18l2-1.5L9 21l2-1.5L13 21l2-1.5L17 21l2-1.5V3l-2 1.5L15 3l-2 1.5L11 3 9 4.5 7 3zM8 8h8M8 12h8",wallet:"M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM16 12.5h3v3h-3a1.5 1.5 0 0 1 0-3z",scroll:"M6 4a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2zM6 4h11a2 2 0 0 1 2 2v11M8 7v11a2 2 0 0 0 2 2h9a1 1 0 0 0 1-1v-2H10M11 9h6M11 13h6",cal:"M4 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3H4zM4 9h14v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 3v3M14 3v3",cash:"M3 6h18v12H3zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 9v.01M18 15v.01",swap:"M7 10l-4 4 4 4M3 14h14M17 14l4-4-4-4M21 10H7",doc:"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h8",plus:"M12 5v14M5 12h14",x:"M18 6 6 18M6 6l12 12",check:"M21.5 9.5A10 10 0 1 1 16.5 3M22 5 12 14.5l-3-3",clock:"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3.5 2",search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3",refresh:"M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5",logout:"M16 17l5-5-5-5M21 12H9M12 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6",cl:"m15 6-6 6 6 6",down:"M12 5v14M19 12l-7 7-7-7",up:"M12 19V5M5 12l7-7 7 7",trash:"M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M10 11v6M14 11v6",chart:"M3 3v18h18M7 14v4M12 9v9M17 5v13",bell:"M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0",lock:"M5 11h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V7a4 4 0 0 1 8 0v4",tag:"M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01",wrench:"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z",wa:"M20 11.5a8 8 0 0 1-11.9 7L3 20l1.5-5.1A8 8 0 1 1 20 11.5zM8.5 7.7c-.2 0-.5 0-.7.3-.3.3-1 .9-1 2.2s1 2.6 1.2 2.8c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.1-1.3 0-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.5-2.2-1.3-.6-.5-1-1.2-1.2-1.4-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5 0-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4z"};
+const P={box:"M21 8 12 3 3 8m18 0-9 5m9-5v8l-9 5m0-13L3 8m9 5v8M3 8v8l9 5",home:"M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z",users:"M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 19v-1a4 4 0 0 0-3-3.8",user:"M5 20v-1a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",receipt:"M5 3v18l2-1.5L9 21l2-1.5L13 21l2-1.5L17 21l2-1.5V3l-2 1.5L15 3l-2 1.5L11 3 9 4.5 7 3zM8 8h8M8 12h8",wallet:"M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM16 12.5h3v3h-3a1.5 1.5 0 0 1 0-3z",scroll:"M6 4a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2zM6 4h11a2 2 0 0 1 2 2v11M8 7v11a2 2 0 0 0 2 2h9a1 1 0 0 0 1-1v-2H10M11 9h6M11 13h6",cal:"M4 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3H4zM4 9h14v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 3v3M14 3v3",cash:"M3 6h18v12H3zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 9v.01M18 15v.01",swap:"M7 10l-4 4 4 4M3 14h14M17 14l4-4-4-4M21 10H7",doc:"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h8",plus:"M12 5v14M5 12h14",x:"M18 6 6 18M6 6l12 12",check:"M21.5 9.5A10 10 0 1 1 16.5 3M22 5 12 14.5l-3-3",clock:"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3.5 2",search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3",refresh:"M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5",logout:"M16 17l5-5-5-5M21 12H9M12 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6",cl:"m15 6-6 6 6 6",down:"M12 5v14M19 12l-7 7-7-7",up:"M12 19V5M5 12l7-7 7 7",trash:"M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M10 11v6M14 11v6",chart:"M3 3v18h18M7 14v4M12 9v9M17 5v13",bell:"M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0",lock:"M5 11h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V7a4 4 0 0 1 8 0v4",tag:"M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01",wrench:"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z",wa:"M20 11.5a8 8 0 0 1-11.9 7L3 20l1.5-5.1A8 8 0 1 1 20 11.5zM8.5 7.7c-.2 0-.5 0-.7.3-.3.3-1 .9-1 2.2s1 2.6 1.2 2.8c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.1-1.3 0-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.5-2.2-1.3-.6-.5-1-1.2-1.2-1.4-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5 0-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4z"};
 function ic(n,s,col){const d=P[n];if(!d)return"";return `<svg width="${s||16}" height="${s||16}" viewBox="0 0 24 24" fill="none" stroke="${col||'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d.split('M').filter(Boolean).map(p=>`<path d="M${p}"/>`).join('')}</svg>`;}
 
 const LIST={
@@ -111,7 +114,7 @@ const LIST={
  pb:["TL","$"]
 };
 let DATA={panel:{},cariOzet:[],musteriler:[],faturalar:[],odemeler:[],cekler:[],taksitler:[],kasa:[],ortak:[],talepler:{bildirimler:[],sifreler:[],teklifler:[],servisler:[]}};
-const S={view:"home",sheet:null,editing:null,sub:null,q:"",loading:true,err:"",authed:false,loginErr:"",delArm:false,talep:null};
+const S={view:"home",grp:"muh",picker:false,sheet:null,editing:null,sub:null,q:"",loading:true,err:"",authed:false,loginErr:"",delArm:false,talep:null};
 const AUTH={email:"info@ersamachinery.com",pass:"Ertu1q2w3e4r5t**"};
 function getRemember(){try{return localStorage.getItem("ersa_cari_auth")==="1";}catch(e){return false;}}
 S.authed=getRemember();
@@ -146,44 +149,80 @@ function toast(t){$("toasthost").innerHTML=`<div class="toast">${esc(t)}</div>`;
 
 /* ---------- modüller ---------- */
 const MODS=[
- {id:"panel",t:"Kontrol Paneli",ic:"home",col:"#5B8DEF",bg:"#192639",sub:()=>"özet rakamlar"},
- {id:"cariozet",t:"Cari Özet",ic:"users",col:"#2ED573",bg:"#11271A",sub:()=>DATA.cariOzet.length+" müşteri"},
- {id:"musteriler",t:"Müşteriler",ic:"user",col:"#B98BFF",bg:"#221A33",sub:()=>DATA.musteriler.length+" kayıt"},
- {id:"faturalar",t:"Faturalar",ic:"receipt",col:"#FF6B5E",bg:"#2A1414",sub:()=>DATA.faturalar.length+" kayıt"},
- {id:"odemeler",t:"Ödemeler",ic:"wallet",col:"#2ED573",bg:"#11271A",sub:()=>DATA.odemeler.length+" kayıt"},
- {id:"cekler",t:"Çek Takibi",ic:"scroll",col:"#F5A623",bg:"#2C2410",sub:()=>bekleyenCek()+" bekleyen"},
- {id:"taksitler",t:"Taksitler",ic:"cal",col:"#5B8DEF",bg:"#192639",sub:()=>bekleyenTaksit()+" bekleyen"},
- {id:"kasa",t:"Kasa",ic:"cash",col:"#22D3C5",bg:"#0E2A28",sub:()=>money(DATA.panel.kasaTL,"₺")},
- {id:"ortak",t:"Ortak Cari",ic:"swap",col:"#B98BFF",bg:"#221A33",sub:()=>DATA.ortak.length+" hareket"},
- {id:"ekstre",t:"Cari Ekstre",ic:"doc",col:"#9CA3AF",bg:"#1F1F1F",sub:()=>"müşteri seç"},
- {id:"talepler",t:"Talepler",ic:"bell",col:"#FF6B5E",bg:"#2A1414",sub:()=>{const n=yeniTalep();return n?n+" yeni talep":"portal talepleri";}},
- {id:"gorevler",t:"Görevler",ic:"scroll",col:"#F5A623",bg:"#2C2410",sub:()=>{const g=DATA.gorevler||[];const n=g.filter(x=>x.tip==="Talep"&&x.durum==="Bekliyor").length;return n?n+" yeni talep":"Ali'ye görev ata";}}
+ {id:"panel",g:"muh",t:"Kontrol Paneli",ic:"home",col:"#5B8DEF",bg:"#192639",sub:()=>"özet rakamlar"},
+ {id:"cariozet",g:"muh",t:"Cari Özet",ic:"users",col:"#2ED573",bg:"#11271A",sub:()=>DATA.cariOzet.length+" müşteri"},
+ {id:"musteriler",g:"muh",t:"Müşteriler",ic:"user",col:"#B98BFF",bg:"#221A33",sub:()=>DATA.musteriler.length+" kayıt"},
+ {id:"faturalar",g:"muh",t:"Faturalar",ic:"receipt",col:"#FF6B5E",bg:"#2A1414",sub:()=>DATA.faturalar.length+" kayıt"},
+ {id:"odemeler",g:"muh",t:"Ödemeler",ic:"wallet",col:"#2ED573",bg:"#11271A",sub:()=>DATA.odemeler.length+" kayıt"},
+ {id:"cekler",g:"muh",t:"Çek Takibi",ic:"scroll",col:"#F5A623",bg:"#2C2410",sub:()=>bekleyenCek()+" bekleyen"},
+ {id:"taksitler",g:"muh",t:"Taksitler",ic:"cal",col:"#5B8DEF",bg:"#192639",sub:()=>bekleyenTaksit()+" bekleyen"},
+ {id:"kasa",g:"muh",t:"Kasa",ic:"cash",col:"#22D3C5",bg:"#0E2A28",sub:()=>money(DATA.panel.kasaTL,"₺")},
+ {id:"ortak",g:"muh",t:"Ortak Cari",ic:"swap",col:"#B98BFF",bg:"#221A33",sub:()=>DATA.ortak.length+" hareket"},
+ {id:"ekstre",g:"muh",t:"Cari Ekstre",ic:"doc",col:"#9CA3AF",bg:"#1F1F1F",sub:()=>"müşteri seç"},
+ {id:"talepler",g:"portal",t:"Talepler",ic:"bell",col:"#FF6B5E",bg:"#2A1414",sub:()=>{const n=yeniTalep();return n?n+" yeni talep":"portal talepleri";}},
+ {id:"gorevler",g:"ist",t:"Görevler",ic:"scroll",col:"#F5A623",bg:"#2C2410",sub:()=>{const g=DATA.gorevler||[];const n=g.filter(x=>x.tip==="Talep"&&x.durum==="Bekliyor").length;return n?n+" yeni talep":"Ali'ye görev ata";}}
 ];
 function tlist(){const t=DATA.talepler||{};return {b:t.bildirimler||[],s:t.sifreler||[],k:t.teklifler||[],v:t.servisler||[]};}
 function yeniTalep(){const t=tlist();return [...t.b,...t.s,...t.k,...t.v].filter(x=>(x.durum||"Yeni")==="Yeni").length;}
 
+/* ---------- görünüm grupları (Sheet'teki 🗂 Görünüm ile aynı) ---------- */
+const GROUPS=[
+ {id:"muh",   name:"Muhasebe",        ic:"home", col:"#5B8DEF", bg:"#192639"},
+ {id:"portal",name:"Müşteri Portalı", ic:"bell", col:"#FF6B5E", bg:"#2A1414"},
+ {id:"ist",   name:"İstanbul Şube",   ic:"tag",  col:"#F5A623", bg:"#2C2410"},
+ {id:"kutu",  name:"Ersa Kutu",       ic:"box",  col:"#2ED573", bg:"#11271A", soon:true},
+ {id:"lux",   name:"Lux Box",         ic:"box",  col:"#B98BFF", bg:"#221A33", soon:true}
+];
+function grpById(id){return GROUPS.find(g=>g.id===id)||GROUPS[0];}
+function grpStatus(id){
+ const p=DATA.panel||{};
+ if(id==="muh")    return "Net alacak "+money(p.netAlacak)+" · "+bekleyenCek()+" bekleyen çek";
+ if(id==="portal"){const n=yeniTalep();return n?n+" yeni talep":"bekleyen talep yok";}
+ if(id==="ist"){const g=DATA.gorevler||[];const a=g.filter(x=>x.durum!=="Çözüldü").length;return a?a+" açık görev":"açık görev yok";}
+ return "Yakında kurulacak";
+}
+function grpSummary(id){
+ const p=DATA.panel||{};
+ const card=(label,big,cells)=>`<div class="blk" style="padding:17px 18px;margin-top:14px;">
+   <div style="font-size:10px;font-weight:700;letter-spacing:1.3px;color:#9b9b95;">${label}</div>
+   <div class="bignum" style="font-size:30px;color:#fff;margin-top:3px;">${big}</div>
+   <div style="display:flex;gap:8px;margin-top:13px;">${cells.map(c=>`<div style="flex:1;background:#222;border-radius:11px;padding:9px;"><div style="font-size:9.5px;color:#9b9b95;">${c[0]}</div><div class="bignum" style="font-size:15px;color:${c[2]};margin-top:1px;">${c[1]}</div></div>`).join("")}</div>
+  </div>`;
+ if(id==="muh") return card("NET ALACAK ($)",money(p.netAlacak),[["Tahsilat",pct(p.oran),"var(--green)"],["Bekleyen çek",money(p.bekleyen),"var(--gold)"],["Kasa TL",money(p.kasaTL,'₺'),"#fff"]]);
+ if(id==="portal"){const t=tlist();const y=a=>a.filter(x=>(x.durum||"Yeni")==="Yeni").length;return card("BEKLEYEN TALEP",String(yeniTalep()),[["Ödeme bild.",String(y(t.b)),"#fff"],["Şifre",String(y(t.s)),"var(--gold)"],["Teklif+Servis",String(y(t.k)+y(t.v)),"#fff"]]);}
+ if(id==="ist"){const g=DATA.gorevler||[];const acik=g.filter(x=>x.durum!=="Çözüldü").length;const yeni=g.filter(x=>x.tip==="Talep"&&x.durum==="Bekliyor").length;const coz=g.filter(x=>x.durum==="Çözüldü").length;return card("AÇIK GÖREV",String(acik),[["Ali'den yeni",String(yeni),"var(--gold)"],["Toplam",String(g.length),"#fff"],["Çözülen",String(coz),"var(--green)"]]);}
+ return "";
+}
+function pickerSheet(){
+ return `<div class="ovl"><div class="sheet">
+   <div style="font-size:12px;font-weight:800;letter-spacing:1.2px;color:#9b9b95;text-align:center;margin:2px 0 14px;">GÖRÜNÜM SEÇ</div>
+   ${GROUPS.map(g=>`<div class="tap" data-act="gsel" data-g="${g.id}" style="display:flex;align-items:center;gap:12px;padding:11px 8px;border-radius:14px;margin-bottom:2px;${g.id===S.grp?'background:#241414;border:1px solid #4a1f1f;':''}">
+     <div style="width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:${g.bg};flex-shrink:0;">${ic(g.ic,18,g.col)}</div>
+     <div style="flex:1;min-width:0;"><div style="font-size:14.5px;font-weight:700;color:#fff;">${esc(g.name)}${g.soon?' <span style="font-size:10px;font-weight:800;color:var(--gold);">· yakında</span>':''}</div><div style="font-size:11.5px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(grpStatus(g.id))}</div></div>
+     ${g.id===S.grp?ic('check',18,'#2ED573'):''}
+   </div>`).join("")}
+ </div></div>`;
+}
+
 /* ---------- HOME (hub) ---------- */
 function homeView(){
- const p=DATA.panel;
+ const g=grpById(S.grp);
+ const mods=MODS.filter(m=>m.g===S.grp);
  return `<div class="pad stg">
   <div class="topbar">
-   <div><div class="h1">Merhaba Ertuğrul 👋</div><div class="sub">Bugünkü durum</div></div>
+   <div class="wpill tap" data-act="gpick">
+    <div class="wi" style="background:${g.bg};">${ic(g.ic,15,g.col)}</div>
+    <div class="wt">ERSA · ${esc(g.name)} <span style="font-weight:600;color:var(--muted);display:inline-flex;vertical-align:-2px;">${ic('down',13,'#8A8A8A')}</span></div>
+   </div>
    <div class="circ tap" data-act="logout" style="background:#202020;">${ic('logout',18,'#EDEDED')}</div>
   </div>
+  <div class="sub" style="margin-top:9px;">Merhaba Ertuğrul 👋 · ${esc(g.name)} görünümü</div>
   ${S.err?`<div class="banner">${esc(S.err)}</div>`:""}
-  <div class="blk" style="padding:17px 18px;margin-top:14px;">
-   <div style="font-size:10px;font-weight:700;letter-spacing:1.3px;color:#9b9b95;">NET ALACAK ($)</div>
-   <div class="bignum" style="font-size:30px;color:#fff;margin-top:3px;">${money(p.netAlacak)}</div>
-   <div style="display:flex;gap:8px;margin-top:13px;">
-    <div style="flex:1;background:#222;border-radius:11px;padding:9px;"><div style="font-size:9.5px;color:#9b9b95;">Tahsilat</div><div class="bignum" style="font-size:15px;color:var(--green);margin-top:1px;">${pct(p.oran)}</div></div>
-    <div style="flex:1;background:#222;border-radius:11px;padding:9px;"><div style="font-size:9.5px;color:#9b9b95;">Bekleyen çek</div><div class="bignum" style="font-size:15px;color:var(--gold);margin-top:1px;">${money(p.bekleyen)}</div></div>
-    <div style="flex:1;background:#222;border-radius:11px;padding:9px;"><div style="font-size:9.5px;color:#9b9b95;">Kasa TL</div><div class="bignum" style="font-size:15px;color:#fff;margin-top:1px;">${money(p.kasaTL,'₺')}</div></div>
-   </div>
-  </div>
-  <div class="sec">Modüller</div>
+  ${grpSummary(S.grp)}
+  ${mods.length?`<div class="sec">Modüller</div>
   <div class="grid2">
-   ${MODS.map(x=>`<div class="modcard" data-act="open" data-v="${x.id}"><div class="mi" style="background:${x.bg};">${ic(x.ic,21,x.col)}</div><div><div class="ml">${x.t}</div><div class="mv">${x.sub()}</div></div></div>`).join("")}
-  </div>
+   ${mods.map(x=>`<div class="modcard" data-act="open" data-v="${x.id}"><div class="mi" style="background:${x.bg};">${ic(x.ic,21,x.col)}</div><div><div class="ml">${x.t}</div><div class="mv">${x.sub()}</div></div></div>`).join("")}
+  </div>`:`<div class="empty" style="padding-top:46px;">Bu defter için henüz modül kurulmadı.<br>Sekmelerini oluşturduğunda buraya eklerim.<br><span style="display:inline-block;font-size:10px;font-weight:800;letter-spacing:.5px;color:var(--gold);background:#2A1810;border:1px solid #4a2c12;border-radius:8px;padding:3px 8px;margin-top:11px;">YAKINDA</span></div>`}
   <div style="text-align:center;margin-top:16px;"><span class="tap" data-act="refresh" style="font-size:12px;color:var(--muted);font-weight:600;">${ic('refresh',13,'#8A8A8A')} Verileri yenile</span></div>
  </div>`;
 }
@@ -458,7 +497,7 @@ function render(){
  else if(LISTVIEWS.includes(S.view))h=listView(S.view);
  else h=homeView();
  $("scr").innerHTML=h;
- $("sheethost").innerHTML=S.talep?talepForm():(S.gorev?gorevForm():(S.sheet?sheetForm():''));
+ $("sheethost").innerHTML=S.picker?pickerSheet():(S.talep?talepForm():(S.gorev?gorevForm():(S.sheet?sheetForm():'')));
  if(!S.loading){
   if(LISTVIEWS.includes(S.view)){renderMList();bindSearch(renderMList);}
   else if(S.view==="cariozet"){renderOzet();bindSearch(renderOzet);}
@@ -470,11 +509,13 @@ function bindSearch(fn){const s=$("msearch");if(s)s.oninput=e=>{S.q=e.target.val
 
 /* ---------- olaylar ---------- */
 $("app").addEventListener("click",async function(e){
- if(e.target.classList&&e.target.classList.contains("ovl")){S.sheet=null;S.talep=null;S.gorev=null;S.delArm=false;render();return;}
+ if(e.target.classList&&e.target.classList.contains("ovl")){S.sheet=null;S.talep=null;S.gorev=null;S.picker=false;S.delArm=false;render();return;}
  const el=e.target.closest("[data-act]"); if(!el)return;
  const a=el.getAttribute("data-act");
  if(a==="open"){S.view=el.getAttribute("data-v");S.q="";S.sub=null;render();}
  else if(a==="home"){S.view="home";S.q="";S.sub=null;render();}
+ else if(a==="gpick"){S.picker=true;render();}
+ else if(a==="gsel"){S.grp=el.getAttribute("data-g");S.picker=false;S.view="home";S.q="";S.sub=null;render();}
  else if(a==="refresh"){load();}
  else if(a==="ekstre"){S.view="ekstre";S.sub=el.getAttribute("data-m");render();}
  else if(a==="ekstreback"){S.sub=null;S.q="";render();}

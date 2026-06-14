@@ -38,6 +38,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',syste
 .chip{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:20px;}
 .chip-r{background:var(--red);color:#fff;}.chip-g{background:#1F9D52;color:#fff;}.chip-n{background:#2C2C2C;color:#CFCFCF;}.chip-b{background:#2F6FE0;color:#fff;}.chip-o{background:var(--gold);color:#181818;}
 .btnred{width:100%;background:var(--red);color:#fff;border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;box-shadow:0 8px 20px rgba(197,21,21,.28);}
+.btnwa{width:100%;background:#25D366;color:#fff;border:none;border-radius:16px;padding:14px;font-size:14.5px;font-weight:700;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:10px;}
+.btnwa.dis{background:#2A2A2A;color:#6A6A6A;}
 .btndel{width:100%;background:transparent;color:#FF6B5E;border:1.5px solid #5a2a2a;border-radius:14px;padding:12px;font-size:13.5px;font-weight:700;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;margin-top:10px;}
 .bignum{font-weight:800;font-variant-numeric:tabular-nums;}
 .field{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;font-size:14.5px;color:var(--ink);background:#202020;margin-bottom:12px;outline:none;font-family:inherit;}
@@ -94,7 +96,7 @@ body{padding:0;background:#111111;align-items:stretch;justify-content:stretch;}
 
 <script src="config.js"></script>
 <script>
-const P={home:"M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z",users:"M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 19v-1a4 4 0 0 0-3-3.8",user:"M5 20v-1a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",receipt:"M5 3v18l2-1.5L9 21l2-1.5L13 21l2-1.5L17 21l2-1.5V3l-2 1.5L15 3l-2 1.5L11 3 9 4.5 7 3zM8 8h8M8 12h8",wallet:"M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM16 12.5h3v3h-3a1.5 1.5 0 0 1 0-3z",scroll:"M6 4a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2zM6 4h11a2 2 0 0 1 2 2v11M8 7v11a2 2 0 0 0 2 2h9a1 1 0 0 0 1-1v-2H10M11 9h6M11 13h6",cal:"M4 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3H4zM4 9h14v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 3v3M14 3v3",cash:"M3 6h18v12H3zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 9v.01M18 15v.01",swap:"M7 10l-4 4 4 4M3 14h14M17 14l4-4-4-4M21 10H7",doc:"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h8",plus:"M12 5v14M5 12h14",x:"M18 6 6 18M6 6l12 12",check:"M21.5 9.5A10 10 0 1 1 16.5 3M22 5 12 14.5l-3-3",clock:"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3.5 2",search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3",refresh:"M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5",logout:"M16 17l5-5-5-5M21 12H9M12 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6",cl:"m15 6-6 6 6 6",down:"M12 5v14M19 12l-7 7-7-7",up:"M12 19V5M5 12l7-7 7 7",trash:"M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M10 11v6M14 11v6",chart:"M3 3v18h18M7 14v4M12 9v9M17 5v13",bell:"M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0",lock:"M5 11h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V7a4 4 0 0 1 8 0v4",tag:"M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01",wrench:"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"};
+const P={home:"M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z",users:"M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 19v-1a4 4 0 0 0-3-3.8",user:"M5 20v-1a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",receipt:"M5 3v18l2-1.5L9 21l2-1.5L13 21l2-1.5L17 21l2-1.5V3l-2 1.5L15 3l-2 1.5L11 3 9 4.5 7 3zM8 8h8M8 12h8",wallet:"M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM16 12.5h3v3h-3a1.5 1.5 0 0 1 0-3z",scroll:"M6 4a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2zM6 4h11a2 2 0 0 1 2 2v11M8 7v11a2 2 0 0 0 2 2h9a1 1 0 0 0 1-1v-2H10M11 9h6M11 13h6",cal:"M4 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3H4zM4 9h14v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 3v3M14 3v3",cash:"M3 6h18v12H3zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 9v.01M18 15v.01",swap:"M7 10l-4 4 4 4M3 14h14M17 14l4-4-4-4M21 10H7",doc:"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h8",plus:"M12 5v14M5 12h14",x:"M18 6 6 18M6 6l12 12",check:"M21.5 9.5A10 10 0 1 1 16.5 3M22 5 12 14.5l-3-3",clock:"M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3.5 2",search:"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3",refresh:"M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5",logout:"M16 17l5-5-5-5M21 12H9M12 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6",cl:"m15 6-6 6 6 6",down:"M12 5v14M19 12l-7 7-7-7",up:"M12 19V5M5 12l7-7 7 7",trash:"M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M10 11v6M14 11v6",chart:"M3 3v18h18M7 14v4M12 9v9M17 5v13",bell:"M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0",lock:"M5 11h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V7a4 4 0 0 1 8 0v4",tag:"M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01",wrench:"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z",wa:"M20 11.5a8 8 0 0 1-11.9 7L3 20l1.5-5.1A8 8 0 1 1 20 11.5zM8.5 7.7c-.2 0-.5 0-.7.3-.3.3-1 .9-1 2.2s1 2.6 1.2 2.8c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.1-1.3 0-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.5-2.2-1.3-.6-.5-1-1.2-1.2-1.4-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5 0-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4z"};
 function ic(n,s,col){const d=P[n];if(!d)return"";return `<svg width="${s||16}" height="${s||16}" viewBox="0 0 24 24" fill="none" stroke="${col||'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d.split('M').filter(Boolean).map(p=>`<path d="M${p}"/>`).join('')}</svg>`;}
 
 const LIST={
@@ -154,7 +156,8 @@ const MODS=[
  {id:"kasa",t:"Kasa",ic:"cash",col:"#22D3C5",bg:"#0E2A28",sub:()=>money(DATA.panel.kasaTL,"₺")},
  {id:"ortak",t:"Ortak Cari",ic:"swap",col:"#B98BFF",bg:"#221A33",sub:()=>DATA.ortak.length+" hareket"},
  {id:"ekstre",t:"Cari Ekstre",ic:"doc",col:"#9CA3AF",bg:"#1F1F1F",sub:()=>"müşteri seç"},
- {id:"talepler",t:"Talepler",ic:"bell",col:"#FF6B5E",bg:"#2A1414",sub:()=>{const n=yeniTalep();return n?n+" yeni talep":"portal talepleri";}}
+ {id:"talepler",t:"Talepler",ic:"bell",col:"#FF6B5E",bg:"#2A1414",sub:()=>{const n=yeniTalep();return n?n+" yeni talep":"portal talepleri";}},
+ {id:"gorevler",t:"Görevler",ic:"scroll",col:"#F5A623",bg:"#2C2410",sub:()=>{const g=DATA.gorevler||[];const n=g.filter(x=>x.tip==="Talep"&&x.durum==="Bekliyor").length;return n?n+" yeni talep":"Ali'ye görev ata";}}
 ];
 function tlist(){const t=DATA.talepler||{};return {b:t.bildirimler||[],s:t.sifreler||[],k:t.teklifler||[],v:t.servisler||[]};}
 function yeniTalep(){const t=tlist();return [...t.b,...t.s,...t.k,...t.v].filter(x=>(x.durum||"Yeni")==="Yeni").length;}
@@ -333,6 +336,7 @@ function sheetForm(){
 /* ---------- TALEPLER (portal) ---------- */
 function tchip(durum){const d=(durum||"").toLowerCase();
  if(d==="yeni")return `<span class="chip chip-o">${ic('clock',10)} Yeni</span>`;
+ if(d==="bekliyor")return `<span class="chip chip-o">${ic('clock',10)} Bekliyor</span>`;
  if(["onaylandı","onaylandi","verildi","yanıtlandı","yanitlandi","çözüldü","cozuldu"].includes(d))return `<span class="chip chip-g">${ic('check',10)} ${esc(durum)}</span>`;
  if(["işlemde","islemde"].includes(d))return `<span class="chip chip-b">${esc(durum)}</span>`;
  if(d==="reddedildi")return `<span class="chip chip-r">${esc(durum)}</span>`;
@@ -351,6 +355,38 @@ function taleplerView(){
   ${blok("Fiyat Teklifleri",t.k,tek)}
   ${blok("Servis Kayıtları",t.v,ser)}
  </div>`;
+}
+function gorevlerView(){
+ const g=DATA.gorevler||[];
+ const talepler=g.filter(x=>x.tip==="Talep");
+ const atananlar=g.filter(x=>x.tip!=="Talep");
+ const row=x=>`<div class="lrow" data-act="gorevedit" data-row="${x._row}"><div style="flex:1;min-width:0;"><div class="ct">${esc(x.baslik||'')}</div><div class="cs">${x.aciklama?esc(x.aciklama)+' · ':''}${esc(x.zaman||'')}</div></div>${tchip(x.durum)}</div>`;
+ const blok=(baslik,arr)=>`<div class="sec">${baslik}</div><div class="c" style="padding:2px 15px;">${arr.length?arr.map(row).join(""):'<div class="empty">Kayıt yok.</div>'}</div>`;
+ return `<div class="pad stg">${head("Görevler")}
+  <div class="sub" style="margin-top:-4px;">Ali'ye iş atayın · taleplerini görün</div>
+  <button class="btnred" style="margin:13px 0 2px;" data-act="gorevata">${ic('plus',16,'#fff')} Ali'ye Görev Ata</button>
+  ${blok("Ali'nin Talepleri",talepler)}
+  ${blok("Atadıklarım",atananlar)}
+ </div>`;
+}
+function gorevForm(){
+ const m=S.gorev;
+ if(m.mode==="ata"){
+  return `<div class="ovl"><div class="sheet">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><div class="disp" style="font-weight:700;font-size:17px;color:#fff;">Ali'ye Görev Ata</div><div class="circ tap" data-act="gorevclose" style="background:#2C2C2C;">${ic('x',16,'#EDEDED')}</div></div>
+   <label class="lbl">Başlık</label><input id="gv_bas" class="field" placeholder="Örn. Çin siparişini takip et">
+   <label class="lbl">Açıklama</label><textarea id="gv_ack" class="field" style="min-height:72px;resize:vertical;" placeholder="Detay (isteğe bağlı)"></textarea>
+   <button class="btnred" data-act="gorevatasave">${ic('check',16,'#fff')} Görevi Ata</button>
+  </div></div>`;
+ }
+ const r=m.rec;
+ return `<div class="ovl"><div class="sheet">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><div class="disp" style="font-weight:700;font-size:17px;color:#fff;">${r.tip==="Talep"?"Ali'nin Talebi":"Görev"}</div><div class="circ tap" data-act="gorevclose" style="background:#2C2C2C;">${ic('x',16,'#EDEDED')}</div></div>
+  <div class="c" style="padding:13px 15px;font-size:14px;color:#fff;line-height:1.5;margin-bottom:14px;">${esc(r.baslik||'')}${r.aciklama?'<br><span style="color:var(--muted);">'+esc(r.aciklama)+'</span>':''}<br><span style="color:var(--muted2);font-size:12px;">${esc(r.kim||'')} · ${esc(r.zaman||'')}</span></div>
+  <label class="lbl">Durum</label>
+  <select id="gv_durum" class="field">${["Bekliyor","Çözüldü"].map(o=>`<option ${o===(r.durum||'Bekliyor')?'selected':''}>${o}</option>`).join("")}</select>
+  <button class="btnred" data-act="gorevdurumsave">${ic('check',16,'#fff')} Kaydet</button>
+ </div></div>`;
 }
 const TDUR={bildirim:["Yeni","Onaylandı","Reddedildi"],sifre:["Yeni","Verildi","Reddedildi"],teklif:["Yeni","Yanıtlandı"],servis:["Yeni","İşlemde","Çözüldü"]};
 function talepForm(){
@@ -371,7 +407,26 @@ function talepForm(){
   <label class="lbl">Durum</label>
   <select id="tp_durum" class="field">${opts.map(o=>`<option ${o===(rec.durum||'Yeni')?'selected':''}>${o}</option>`).join("")}</select>
   <button class="btnred" data-act="talepsave">${ic('check',16,'#fff')} Kaydet</button>
+  ${(()=>{const num=custPhone(rec.musteri);return `<button class="btnwa${num?'':' dis'}" data-act="wa">${ic('wa',17,num?'#fff':'#6A6A6A')} ${num?"Kaydet + WhatsApp'tan bildir":"Telefon yok (WhatsApp kapalı)"}</button>`;})()}
  </div></div>`;
+}
+
+/* WhatsApp yardımcıları */
+function waNorm(t){ let d=String(t||"").replace(/\D/g,""); if(!d)return"";
+ if(d.length===12&&d.slice(0,2)==="90")return d;
+ if(d.length===10&&d[0]==="5")return "90"+d;
+ if(d.length===11&&d[0]==="0"&&d[1]==="5")return "90"+d.slice(1);
+ return ""; } // mobil değilse (sabit hat vb.) boş döner
+function custPhone(ad){ const m=(DATA.musteriler||[]).find(x=>String(x.sirket||"").trim()===String(ad||"").trim()); return m?waNorm(m.telefon):""; }
+function waMessage(tip,rec,durum,sifre){
+ const f=rec.musteri, portal="https://ersamachine.github.io/portal/", imza="\nİyi çalışmalar,\nERSA Machinery";
+ if(tip==="sifre"){ return sifre
+   ? `Sayın ${f},\nMakine açılış şifreniz hazır: ${sifre}\nMüşteri portalınızdan da görebilirsiniz: ${portal}${imza}`
+   : `Sayın ${f},\nŞifre talebiniz işleme alınmıştır. Müşteri portalınızdan takip edebilirsiniz: ${portal}${imza}`; }
+ if(tip==="bildirim") return `Sayın ${f},\n${money(rec.tutar,rec.pb==='TL'?'₺':'$')} tutarındaki ödeme bildiriminiz alınmıştır${durum==='Onaylandı'?' ve hesabınıza işlenmiştir':''}. Teşekkür ederiz.${imza}`;
+ if(tip==="teklif") return `Sayın ${f},\nFiyat teklifiniz hazırlanmıştır. En kısa sürede detayları paylaşacağız. Müşteri portalı: ${portal}${imza}`;
+ if(tip==="servis") return `Sayın ${f},\nServis talebiniz ${durum==='Çözüldü'?'çözülmüştür':'işleme alınmıştır; teknik ekibimiz en kısa sürede dönüş yapacaktır'}. Müşteri portalı: ${portal}${imza}`;
+ return `Sayın ${f}, talebiniz işleme alınmıştır.${imza}`;
 }
 
 /* ---------- giriş ---------- */
@@ -399,10 +454,11 @@ function render(){
  else if(S.view==="cariozet")h=cariOzetView();
  else if(S.view==="ekstre")h=ekstreView();
  else if(S.view==="talepler")h=taleplerView();
+ else if(S.view==="gorevler")h=gorevlerView();
  else if(LISTVIEWS.includes(S.view))h=listView(S.view);
  else h=homeView();
  $("scr").innerHTML=h;
- $("sheethost").innerHTML=S.talep?talepForm():(S.sheet?sheetForm():'');
+ $("sheethost").innerHTML=S.talep?talepForm():(S.gorev?gorevForm():(S.sheet?sheetForm():''));
  if(!S.loading){
   if(LISTVIEWS.includes(S.view)){renderMList();bindSearch(renderMList);}
   else if(S.view==="cariozet"){renderOzet();bindSearch(renderOzet);}
@@ -414,7 +470,7 @@ function bindSearch(fn){const s=$("msearch");if(s)s.oninput=e=>{S.q=e.target.val
 
 /* ---------- olaylar ---------- */
 $("app").addEventListener("click",async function(e){
- if(e.target.classList&&e.target.classList.contains("ovl")){S.sheet=null;S.talep=null;S.delArm=false;render();return;}
+ if(e.target.classList&&e.target.classList.contains("ovl")){S.sheet=null;S.talep=null;S.gorev=null;S.delArm=false;render();return;}
  const el=e.target.closest("[data-act]"); if(!el)return;
  const a=el.getAttribute("data-act");
  if(a==="open"){S.view=el.getAttribute("data-v");S.q="";S.sub=null;render();}
@@ -427,6 +483,28 @@ $("app").addEventListener("click",async function(e){
  else if(a==="close"){S.sheet=null;S.delArm=false;render();}
  else if(a==="talepedit"){const tip=el.getAttribute("data-tip"),row=el.getAttribute("data-row");const t=tlist();const arr={bildirim:t.b,sifre:t.s,teklif:t.k,servis:t.v}[tip]||[];const rec=arr.find(x=>String(x._row)===row);if(rec){S.talep={tip,rec};render();}}
  else if(a==="talepclose"){S.talep=null;render();}
+ else if(a==="gorevata"){S.gorev={mode:"ata"};render();}
+ else if(a==="gorevedit"){const row=el.getAttribute("data-row");const rec=(DATA.gorevler||[]).find(x=>String(x._row)===row);if(rec){S.gorev={mode:"edit",rec};render();}}
+ else if(a==="gorevclose"){S.gorev=null;render();}
+ else if(a==="gorevatasave"){
+   const bas=$("gv_bas").value.trim();const ack=$("gv_ack").value.trim();
+   if(!bas){toast("Başlık yazın");return;}
+   el.style.opacity=".7";el.textContent="Atanıyor…";
+   try{await post({action:"gorevAta",data:{baslik:bas,aciklama:ack,kim:"Ali"}});S.gorev=null;toast("Görev Ali'ye atandı");await load();S.view="gorevler";render();}
+   catch(err){toast("Hata: "+err.message);el.style.opacity="1";}}
+ else if(a==="gorevdurumsave"){
+   const durum=$("gv_durum").value;const rec=S.gorev.rec;
+   el.style.opacity=".7";el.textContent="Kaydediliyor…";
+   try{await post({action:"gorevDurum",row:rec._row,durum});S.gorev=null;toast("Güncellendi");await load();S.view="gorevler";render();}
+   catch(err){toast("Hata: "+err.message);el.style.opacity="1";}}
+ else if(a==="wa"){
+   const {tip,rec}=S.talep;const num=custPhone(rec.musteri);
+   if(!num){toast("Bu müşterinin WhatsApp numarası yok");return;}
+   const durum=$("tp_durum").value;const se=$("tp_sifre");const sifre=se?se.value.trim():null;
+   if(tip==="sifre"&&durum==="Verildi"&&!sifre){toast("Önce şifreyi yazın");return;}
+   window.open("https://wa.me/"+num+"?text="+encodeURIComponent(waMessage(tip,rec,durum,sifre)),"_blank");
+   try{await post({action:"talep",tip,row:rec._row,durum,sifre});S.talep=null;toast("Güncellendi · WhatsApp açıldı");await load();S.view="talepler";render();}
+   catch(err){toast("WhatsApp açıldı, kayıt hatası: "+err.message);}}
  else if(a==="talepsave"){
    const {tip,rec}=S.talep;const durum=$("tp_durum").value;const sifreEl=$("tp_sifre");const sifre=sifreEl?sifreEl.value.trim():null;
    if(tip==="sifre"&&durum==="Verildi"&&!sifre){toast("Önce şifreyi yazın");return;}
